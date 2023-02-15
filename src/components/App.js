@@ -1,10 +1,13 @@
-import { Dropdown } from './'
+import Dropdown from "./Dropdown";
+import "../styles/App.css"
 
-const items = ["Option 1", "Option 2", "Option 3"];
 
-const App=()=>{
-  return (
+function App()
+{
+  const items=["Option1","Option2","Option3"];
+  return(
     <div className="App">
+      <h1>Choose your Option</h1>
       <Dropdown items={items}/>
     </div>
   );

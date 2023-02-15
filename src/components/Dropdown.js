@@ -5,6 +5,7 @@ const Dropdown = ({ items }) => {
 const [showDropdown, setShowDropdown] = useState(false);
 const [selectedOption, setSelectedOption] = useState("");
 
+
 const toggleDropdown = () => {
 setShowDropdown(!showDropdown);
 };
@@ -16,11 +17,12 @@ setShowDropdown(false);
 
 return (
 <div className="dropdown">
-    <button className="dropdown-toggle" onClick={toggleDropdown} onMouseOver={()=>{setShowDropdown(true);}}>
+    <div className="dropdown-menu" onClick={toggleDropdown} onMouseEnter={()=>{setShowDropdown(true)}}>
     {selectedOption || "Select an option"}
-    </button>
+    <i className="fa-solid fa-caret-down"></i>
+    </div>
     {showDropdown && (
-    <ul className="dropdown-menu">
+    <ul className="menu-items">
         {items.map((item) => (
         <li key={item} onClick={() => handleOptionClick(item)}>
             {item}
@@ -28,6 +30,8 @@ return (
         ))}
     </ul>
     )}
+
+    {selectedOption===""?"":<h3 className="select-option">Selected Option : {selectedOption}</h3>}
 </div>
 );
 };
